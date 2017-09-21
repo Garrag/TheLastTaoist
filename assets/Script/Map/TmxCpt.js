@@ -12,6 +12,7 @@ cc.Class({
             if (this.tiledMap.allLayers()[key].getLayerName() == 'ground') {
                 var layer = this.tiledMap.allLayers()[key];
                 cc.log(layer.getTiles());
+                //ceshi
             }
         }
 
