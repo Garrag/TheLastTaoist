@@ -3,13 +3,13 @@
   "uuid": "4fbef2d4-322e-4c2d-b49c-6855f016f476",
   "type": "sprite",
   "wrapMode": "clamp",
-  "filterMode": "bilinear",
+  "filterMode": "point",
   "subMetas": {
     "role_fire_1": {
       "ver": "1.0.3",
       "uuid": "5e79d729-8690-45dd-bd1b-6b18a53de6f5",
       "rawTextureUuid": "4fbef2d4-322e-4c2d-b49c-6855f016f476",
-      "trimType": "auto",
+      "trimType": "custom",
       "trimThreshold": 1,
       "rotated": false,
       "offsetX": 2,
