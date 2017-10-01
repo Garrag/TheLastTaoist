@@ -12,15 +12,10 @@ cc.Class({
             if (this.tiledMap.allLayers()[key].getLayerName() == 'ground') {
                 var layer = this.tiledMap.allLayers()[key];
                 cc.log(layer.getTiles());
-                //ceshi
             }
         }
-
-
         // cc.log(this.tiledMap.allLayers());
         // cc.log(this.tiledMap.getObjectGroups());
-
-
     },
 
     // called every frame, uncomment this function to activate update callback
