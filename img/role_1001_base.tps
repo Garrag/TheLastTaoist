@@ -4,9 +4,9 @@
         <key>fileFormatVersion</key>
         <int>4</int>
         <key>texturePackerVersion</key>
-        <string>4.4.0</string>
+        <string>4.3.1</string>
         <key>fileName</key>
-        <string>/Users/root/code/TheLastTaoist/img/role_1001_base.tps</string>
+        <string>E:/TheLastTaoist/img/role_1001_base.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -178,8 +178,6 @@
         <false/>
         <key>prependSmartFolderName</key>
         <false/>
-        <key>autodetectAnimations</key>
-        <true/>
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
@@ -193,7 +191,7 @@
             <key>trimMargin</key>
             <uint>1</uint>
             <key>trimMode</key>
-            <enum type="SpriteSettings::TrimMode">Trim</enum>
+            <enum type="SpriteSettings::TrimMode">None</enum>
             <key>tracerTolerance</key>
             <int>200</int>
             <key>heuristicMask</key>
@@ -227,6 +225,14 @@
             <key type="filename">Hero/1001/1001_idle_06.png</key>
             <key type="filename">Hero/1001/1001_idle_07.png</key>
             <key type="filename">Hero/1001/1001_idle_08.png</key>
+            <key type="filename">Hero/1001/1001_walk_01.png</key>
+            <key type="filename">Hero/1001/1001_walk_02.png</key>
+            <key type="filename">Hero/1001/1001_walk_03.png</key>
+            <key type="filename">Hero/1001/1001_walk_04.png</key>
+            <key type="filename">Hero/1001/1001_walk_05.png</key>
+            <key type="filename">Hero/1001/1001_walk_06.png</key>
+            <key type="filename">Hero/1001/1001_walk_07.png</key>
+            <key type="filename">Hero/1001/1001_walk_08.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -264,6 +270,14 @@
             <filename>Hero/1001/1001_idle_06.png</filename>
             <filename>Hero/1001/1001_idle_07.png</filename>
             <filename>Hero/1001/1001_idle_08.png</filename>
+            <filename>Hero/1001/1001_walk_03.png</filename>
+            <filename>Hero/1001/1001_walk_04.png</filename>
+            <filename>Hero/1001/1001_walk_05.png</filename>
+            <filename>Hero/1001/1001_walk_06.png</filename>
+            <filename>Hero/1001/1001_walk_07.png</filename>
+            <filename>Hero/1001/1001_walk_08.png</filename>
+            <filename>Hero/1001/1001_walk_01.png</filename>
+            <filename>Hero/1001/1001_walk_02.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

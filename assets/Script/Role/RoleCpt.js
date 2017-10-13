@@ -2,14 +2,13 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        debug: false,
     },
 
-    onLoad: function() {
+    onLoad: function () {
     },
 
     // called every frame, uncomment this function to activate update callback
-    update: function(dt) {
+    // update: function (dt) {
 
-    },
+    // },
 });
