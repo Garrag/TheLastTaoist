@@ -99,7 +99,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1280,
+      "width": 1400,
       "height": 720
     },
     "_rotationX": 0,
@@ -108,7 +108,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 640,
+      "x": 700,
       "y": 360
     },
     "_skewX": 0,
@@ -154,7 +154,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1280,
+      "width": 1400,
       "height": 720
     },
     "_rotationX": 0,
@@ -330,7 +330,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 1280,
-      "height": 960
+      "height": 512
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -382,7 +382,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 1280,
-      "height": 960
+      "height": 512
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -411,7 +411,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "static",
+    "_name": "role",
     "_objFlags": 0,
     "_parent": {
       "__id__": 7
@@ -425,7 +425,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "f6N92jrXVJd7sTQ99WAubK",
+    "_id": "a3YpPRcmdN64v2wr+4Ft3/",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -443,7 +443,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 1280,
-      "height": 960
+      "height": 512
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -472,7 +472,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "role",
+    "_name": "static",
     "_objFlags": 0,
     "_parent": {
       "__id__": 7
@@ -486,7 +486,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "a3YpPRcmdN64v2wr+4Ft3/",
+    "_id": "f6N92jrXVJd7sTQ99WAubK",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -504,7 +504,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 1280,
-      "height": 960
+      "height": 512
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -933,7 +933,7 @@
     "_enabled": true,
     "_designResolution": {
       "__type__": "cc.Size",
-      "width": 1280,
+      "width": 1400,
       "height": 720
     },
     "_fitWidth": true,

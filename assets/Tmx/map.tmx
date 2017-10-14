@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="32" tileheight="32" nextobjectid="21">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="40" height="16" tilewidth="32" tileheight="32" nextobjectid="21">
  <tileset firstgid="1" name="map" tilewidth="32" tileheight="32" tilecount="2048" columns="32">
   <image source="map.png" width="1024" height="2048"/>
   <tile id="897">
@@ -12,18 +12,18 @@
    <objectgroup draworder="index"/>
   </tile>
  </tileset>
- <layer name="ground" width="40" height="30">
+ <layer name="ground" width="40" height="16">
   <data encoding="base64" compression="zlib">
-   eJzt0cENQDAUh/Gn7SI4YhJsYgl3S1iFTVjEO/RYTahED98v+Y7N/yUVAQAAAPDGbEW2SLtN32iMSOubAnXm/u2q+0ek84P7et0ffEugMXIfniuciMk0q5ValWm1+/v3AKS4ADxGHDc=
+   eJxjYBgFo2AUjIJR0MjMwHAIDz7MTLkd2kwMDDpQnIMF6zLh1rsQaP8jPPgxFdznDbTfB4p7sGBfPO4bBaQDRhYGBqZBipmBWBGIlQYpVmYZ6Ngb+gAAqF0cNw==
   </data>
  </layer>
  <objectgroup name="role">
-  <object id="6" name="pos1" x="198.482" y="553.807" width="30.6842" height="42.6489" rotation="-271.86"/>
-  <object id="8" name="pos2" x="1080" y="549.333" width="32" height="36"/>
+  <object id="6" name="pos1" x="198.482" y="233.807" width="30.6842" height="42.6489" rotation="-271.86"/>
+  <object id="8" name="pos2" x="1080" y="229.333" width="32" height="36"/>
  </objectgroup>
  <objectgroup name="static">
-  <object id="11" x="0" y="733.333" width="1280" height="34.6667"/>
-  <object id="12" x="96" y="606.5" width="286.667" height="33.5"/>
-  <object id="13" x="894.667" y="605.833" width="289.333" height="32.8333"/>
+  <object id="11" x="0" y="413.333" width="1280" height="34.6667"/>
+  <object id="12" x="96" y="286.5" width="286.667" height="33.5"/>
+  <object id="13" x="894.667" y="285.833" width="289.333" height="32.8333"/>
  </objectgroup>
 </map>
