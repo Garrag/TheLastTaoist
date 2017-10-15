@@ -12,6 +12,7 @@ cc.Class({
     // use this for initialization
     onLoad: function() {
         cc.director.getPhysicsManager().enabled = true;
+        // cc.director.getPhysicsManager().gravity = cc.v2(0, -320*3);
         cc.director.getPhysicsManager().debugDrawFlags = 
         // cc.PhysicsManager.DrawBits.e_aabbBit |
         // cc.PhysicsManager.DrawBits.e_pairBit |

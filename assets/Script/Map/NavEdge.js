@@ -1,26 +1,23 @@
+//导航边
 cc.Class({
-    extends: cc.Component,
-
-    properties: {
-        // foo: {
-        //    default: null,      // The default value will be used only when the component attaching
-        //                           to a node for the first time
-        //    url: cc.Texture2D,  // optional, default is typeof default
-        //    serializable: true, // optional, default is true
-        //    visible: true,      // optional, default is true
-        //    displayName: 'Foo', // optional
-        //    readonly: false,    // optional, default is false
-        // },
-        // ...
+    
+    ctor:function(){
+        this.headNode = null;
+        this.lastNode = null;
     },
-
-    // use this for initialization
-    onLoad: function () {
-
+    init:function(args){
+        args = args || {}
+        this.headNode = args.headNode
+        this.lastNode = args.lastNode
     },
+    //画出自己来
+    drawSelf:function(g){
+        g.fillColor = cc.hexToColor('#000000');
+        g.strokeColor = cc.hexToColor('#000000');
+        g.moveTo(this.headNode.pos.x, this.headNode.pos.y)
+        g.lineTo(this.lastNode.pos.x, this.lastNode.pos.y)
+        g.stroke()
+        g.fill()
+    }
 
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
-});
+}) 

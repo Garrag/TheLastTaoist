@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="40" height="16" tilewidth="32" tileheight="32" nextobjectid="21">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="40" height="16" tilewidth="32" tileheight="32" nextobjectid="22">
  <tileset firstgid="1" name="map" tilewidth="32" tileheight="32" tilecount="2048" columns="32">
   <image source="map.png" width="1024" height="2048"/>
   <tile id="897">
@@ -18,8 +18,8 @@
   </data>
  </layer>
  <objectgroup name="role">
-  <object id="6" name="pos1" x="198.482" y="233.807" width="30.6842" height="42.6489" rotation="-271.86"/>
-  <object id="8" name="pos2" x="1080" y="229.333" width="32" height="36"/>
+  <object id="6" name="pos1" x="640.482" y="199.807" width="30.6842" height="42.6489" rotation="-271.86"/>
+  <object id="8" name="pos2" x="1100" y="355.333" width="32" height="36"/>
  </objectgroup>
  <objectgroup name="static">
   <object id="11" x="0" y="413.333" width="1280" height="34.6667"/>
