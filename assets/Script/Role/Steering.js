@@ -2,7 +2,7 @@
 cc.Class({
     extends: cc.Component,
     properties: {
-        maxSpeed:100,
+        maxSpeed:1000,
     },
     onLoad: function () {
         this.rigidBody = this.getComponent(cc.RigidBody)
