@@ -10,22 +10,42 @@ cc.Class({
         var graphicsNode = new cc.Node('MapDebugNode')
         this.g = graphicsNode.addComponent(cc.Graphics)
         graphicsNode.parent = cc.director.getScene()
+        this.targetNavNode = null;
+        this.schedule(function(){
+            if(this.getCurrentNavNode() == this.targetNavNode && this.platform){
+                this.targetNavNode = this.platform.getRandomNode();
+                // this.g.clear()
+                // this.targetNavNode.drawSelf(this.g, new cc.Color(255,0,0) );
+                this.getComponent('Steering').setTargetPos(this.targetNavNode.pos);
+            }else {
+                this.updateCurrentPlatform()
+            }
+        }, 2);
     },
 
     start: function (dt) {
         // this.updateCurrentPlatform()
-        // this.platform.getRandomNode().drawSelf(this.g, new cc.Color(255,0,0) )
-        // var pos = this.node.parent.convertToNodeSpaceAR(this.platform.getRandomNode().pos)
+        // if(this.platform) {
+        //     var navNode = this.platform.getRandomNode();
+        //     cc.log('updateCurrentPlatform');
+        //     navNode.drawSelf(this.g, new cc.Color(255,0,0) );
+        //     this.getComponent('Steering').setTargetPos(navNode.pos);
+        // }
     },
+
     //获得当前平台
     updateCurrentPlatform:function(){
-        this.platform = GM.mapManager.getPlatformByNode(this.getCurrentNavNode())
+        var currentNavNode = this.getCurrentNavNode()
+        this.targetNavNode = currentNavNode;
+        this.platform = GM.mapManager.getPlatformByNode(currentNavNode)
         return this.platform
     },
+
     //获得当前导航节点
     getCurrentNavNode:function(){
         var worldPos = this.node.convertToWorldSpaceAR(this.navPosNode.getPosition())
-        return GM.mapManager.getNavNodeByPos(worldPos)
+        var node = GM.mapManager.getNavNodeByPos(worldPos)
+        return node
     },
 
 });

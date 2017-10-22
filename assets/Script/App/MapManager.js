@@ -145,6 +145,7 @@ cc.Class({
         //改变碰撞体的类型
         this.physicsBoxList.forEach(function(collider) {
             collider.body.type = cc.RigidBodyType.Static;
+            collider.body.linearDamping  = 1;
         }, this);
         //创建边节点
         this.navNodeList.forEach(function(node) {
@@ -236,6 +237,7 @@ cc.Class({
                 return node
             }
         }
+        return null
     },
     //根据节点获取所在的平台
     getPlatformByNode:function(node){
@@ -390,13 +392,15 @@ cc.Class({
     getMapRolePos:function(){
         var posMap = {}
         var staticBoxObj = this.currentMap.getObjectGroup('role') //获取地图带有的对象
-        var boxArr = staticBoxObj.getObjects()
-        for (var i = 0; i < boxArr.length; i++) {
-            var boxNode = boxArr[i];
-            var data = boxNode.getProperties();
-            var pos = this.exchangePos(cc.p(data.x, data.y))
-            if(data.name){
-                posMap[data.name] = pos;
+        if(staticBoxObj) {
+            var boxArr = staticBoxObj.getObjects()
+            for (var i = 0; i < boxArr.length; i++) {
+                var boxNode = boxArr[i];
+                var data = boxNode.getProperties();
+                var pos = this.exchangePos(cc.p(data.x, data.y))
+                if(data.name){
+                    posMap[data.name] = pos;
+                }
             }
         }
         return posMap

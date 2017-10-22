@@ -18,12 +18,12 @@
   </data>
  </layer>
  <objectgroup name="role">
-  <object id="6" name="pos1" x="640.482" y="199.807" width="30.6842" height="42.6489" rotation="-271.86"/>
+  <object id="6" name="pos1" x="140.482" y="238.474" width="30.6842" height="25.3156"/>
   <object id="8" name="pos2" x="1100" y="355.333" width="32" height="36"/>
  </objectgroup>
  <objectgroup name="static">
-  <object id="11" x="0" y="413.333" width="1280" height="34.6667"/>
-  <object id="12" x="96" y="286.5" width="286.667" height="33.5"/>
-  <object id="13" x="894.667" y="285.833" width="289.333" height="32.8333"/>
+  <object id="11" name="platform3" x="0" y="413.333" width="1280" height="34.6667"/>
+  <object id="12" name="platform2" x="96" y="286.5" width="286.667" height="33.5"/>
+  <object id="13" name="platform1" x="894.667" y="285.833" width="289.333" height="32.8333"/>
  </objectgroup>
 </map>

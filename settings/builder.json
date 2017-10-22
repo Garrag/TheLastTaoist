@@ -4,9 +4,6 @@
   "excludeScenes": [],
   "includeAnySDK": false,
   "includeSDKBox": false,
-  "includeSdk": [
-    "anysdk"
-  ],
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": true,
   "md5Cache": false,
@@ -24,5 +21,6 @@
   "renderMode": "0",
   "startScene": "853e920c-f730-43be-8510-ece80fc27a35",
   "title": "LastTaoist",
-  "webOrientation": "auto"
+  "webOrientation": "auto",
+  "jailbreakPlatform": false
 }
