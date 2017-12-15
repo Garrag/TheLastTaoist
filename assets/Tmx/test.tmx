@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="40" height="16" tilewidth="32" tileheight="32" nextobjectid="8">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="40" height="16" tilewidth="32" tileheight="32" nextobjectid="9">
  <tileset firstgid="1" name="map" tilewidth="32" tileheight="32" tilecount="2048" columns="32">
   <image source="map.png" width="1024" height="2048"/>
  </tileset>
@@ -32,5 +32,6 @@
  </objectgroup>
  <objectgroup name="role">
   <object id="3" name="pos1" x="258.061" y="379.879" width="44" height="28"/>
+  <object id="8" name="pos2" x="542" y="188"/>
  </objectgroup>
 </map>

@@ -20,5 +20,11 @@ cc.Class({
             var pos = this.roleLayer.convertToNodeSpaceAR(data.pos1)
             role_1.setPosition(pos);
         }
+        if(data.pos2) {
+            var role_1 = cc.instantiate(this.rolePrefab_1)
+            role_1.parent = this.roleLayer;
+            var pos = this.roleLayer.convertToNodeSpaceAR(data.pos2)
+            role_1.setPosition(pos);
+        }
     },
 });

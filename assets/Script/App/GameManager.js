@@ -11,9 +11,13 @@ cc.Class({
 
     // use this for initialization
     onLoad: function() {
+        //开启物理模式
         cc.director.getPhysicsManager().enabled = true;
+        //初始化管理器
+        GM.mapManager = this.mapManager
+        GM.enemyManager = this.enemyManager
+        GM.gameManager = this
         // cc.director.getPhysicsManager().gravity = cc.v2(0, -320*3);
-        
         // cc.director.getPhysicsManager().debugDrawFlags = 
         // // cc.PhysicsManager.DrawBits.e_aabbBit |
         // // cc.PhysicsManager.DrawBits.e_pairBit |
@@ -22,12 +26,21 @@ cc.Class({
         // cc.PhysicsManager.DrawBits.e_shapeBit ;
         //加载地图
         this.mapManager.initFun()
-        GM.mapManager = this.mapManager
         //加载敌人
         this.enemyManager.initFun()
-        GM.enemyManager = this.enemyManager
-        //暴露自己
-        GM.gameManager = this.gameManager
+        //加载玩家
+        this.initPlayer()
     },
-
+    //加载玩家
+    initPlayer:function () {
+    },
+    //重新设置游戏
+    resetGame:function () {
+    },
+    //暂停游戏
+    pauseGame:function () {
+    },
+    //打开游戏设置
+    openSetting:function(){
+    },
 });
