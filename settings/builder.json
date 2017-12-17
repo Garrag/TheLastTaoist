@@ -1,11 +1,13 @@
 {
   "appKey": "",
   "appSecret": "",
+  "encryptJs": true,
   "excludeScenes": [],
   "includeAnySDK": false,
   "includeSDKBox": false,
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
   "md5Cache": false,
   "mergeStartScene": false,
   "oauthLoginServer": "",
@@ -22,5 +24,6 @@
   "startScene": "853e920c-f730-43be-8510-ece80fc27a35",
   "title": "LastTaoist",
   "webOrientation": "auto",
-  "jailbreakPlatform": false
+  "xxteaKey": "4839569d-3110-4d",
+  "zipCompressJs": true
 }

@@ -1,3 +1,4 @@
+//角色组件,控制角色的行为
 cc.Class({
     extends: cc.Component,
 

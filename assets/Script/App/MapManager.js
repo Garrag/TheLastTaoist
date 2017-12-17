@@ -61,12 +61,13 @@ cc.Class({
 
         var staticBoxObj = this.currentMap.getObjectGroup('static') //获取地图带有的对象
         if(!staticBoxObj)return;
-
-        var boxArr = staticBoxObj.getObjects()            
+        //获取对象数组
+        var boxArr = staticBoxObj.getObjects()  
         for (var i = 0; i < boxArr.length; i++) {
             var boxNode = boxArr[i];
             var data = boxNode.getProperties();
-            if(data.points){ //多边形
+            if(!data) continue;
+            if (data.points){ //多边形
                 var offset = this.exchangePos(cc.p(data.x, data.y))
                 this.createPhyPolygon({offset:offset, points:data.points})
             }else { //盒子
