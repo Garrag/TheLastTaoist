@@ -1,9 +1,9 @@
-//角色组件,控制角色的行为
+//角色组件,角色控制器
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        navPosNode: cc.Node,
+        navPosNode: cc.Node,    //自己位置的确认点
     },
 
     onLoad: function () {
@@ -11,31 +11,22 @@ cc.Class({
         var graphicsNode = new cc.Node('MapDebugNode')
         this.g = graphicsNode.addComponent(cc.Graphics)
         graphicsNode.parent = cc.director.getScene()
+        //目标节点
         this.targetNavNode = null;
-        this.schedule(function(){
-            if(this.getCurrentNavNode() == this.targetNavNode && this.platform){
+        //两秒进行一次巡逻
+        this.schedule(function () {
+            if (this.getCurrentNavNode() == this.targetNavNode && this.platform) {
                 this.targetNavNode = this.platform.getRandomNode();
-                // this.g.clear()
-                // this.targetNavNode.drawSelf(this.g, new cc.Color(255,0,0) );
+                // 给角色设定目标
                 this.getComponent('Steering').setTargetPos(this.targetNavNode.pos);
-            }else {
+            } else {
                 this.updateCurrentPlatform()
             }
         }, 2);
     },
 
-    start: function (dt) {
-        // this.updateCurrentPlatform()
-        // if(this.platform) {
-        //     var navNode = this.platform.getRandomNode();
-        //     cc.log('updateCurrentPlatform');
-        //     navNode.drawSelf(this.g, new cc.Color(255,0,0) );
-        //     this.getComponent('Steering').setTargetPos(navNode.pos);
-        // }
-    },
-
     //获得当前平台
-    updateCurrentPlatform:function(){
+    updateCurrentPlatform: function () {
         var currentNavNode = this.getCurrentNavNode()
         this.targetNavNode = currentNavNode;
         this.platform = GM.mapManager.getPlatformByNode(currentNavNode)
@@ -43,7 +34,7 @@ cc.Class({
     },
 
     //获得当前导航节点
-    getCurrentNavNode:function(){
+    getCurrentNavNode: function () {
         var worldPos = this.node.convertToWorldSpaceAR(this.navPosNode.getPosition())
         var node = GM.mapManager.getNavNodeByPos(worldPos)
         return node
