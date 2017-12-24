@@ -11,15 +11,12 @@ var manifest = {
     assets: {},
     searchPaths: []
 };
-
-var dest = './remote-assets/';
+var noVersion = 'noVersion'
 var src = '../../build/jsb-binary';
-
 // Parse arguments
 var i = 2;
 while (i < process.argv.length) {
     var arg = process.argv[i];
-
     switch (arg) {
         case '--url':
         case '-u':
@@ -32,6 +29,7 @@ while (i < process.argv.length) {
         case '--version':
         case '-v':
             manifest.version = process.argv[i + 1];
+            noVersion = manifest.version
             i += 2;
             break;
         case '--src':
@@ -49,6 +47,7 @@ while (i < process.argv.length) {
             break;
     }
 }
+var dest = `./${noVersion}/remote-assets/`;
 //读取文件夹处理文件
 function readDir(dir, obj) {
     var stat = fs.statSync(dir);
@@ -84,6 +83,20 @@ function readDir(dir, obj) {
         }
     }
 }
+//递归创建目录 同步方法  
+function mkdirsSync(dirname) {
+    //console.log(dirname);  
+    if (fs.existsSync(dirname)) {
+        return true;
+    } else {
+        if (mkdirsSync(path.dirname(dirname))) {
+            fs.mkdirSync(dirname);
+            return true;
+        }
+    }
+}
+module.exports.mkdirsSync = mkdirsSync;
+
 //创建文件夹
 var mkdirSync = function (path) {
     try {
@@ -99,8 +112,8 @@ readDir(path.join(src, 'res'), manifest.assets);
 var destManifest = path.join(dest, 'project.manifest');
 var destVersion = path.join(dest, 'version.manifest');
 //创建到处路径
-mkdirSync(dest);
-//写入manifest文件
+console.log(dest);
+mkdirsSync(dest)
 fs.writeFile(destManifest, JSON.stringify(manifest), (err) => {
     if (err) throw err;
     console.log('Manifest successfully generated');
@@ -111,3 +124,4 @@ fs.writeFile(destVersion, JSON.stringify(manifest), (err) => {
     if (err) throw err;
     console.log('Version successfully generated');
 });
+
