@@ -1,0 +1,21 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "role_1001_base",
+    "texture": "3e6anOV4lGWa88MYsikxXp",
+    "rect": [
+      50,
+      38,
+      923,
+      1746
+    ],
+    "offset": [
+      11.5,
+      -7
+    ],
+    "originalSize": [
+      1000,
+      1808
+    ]
+  }
+}

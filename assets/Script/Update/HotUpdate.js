@@ -1,5 +1,6 @@
+var BaseScript = require('BaseScript')
 cc.Class({
-    extends: cc.Component,
+    extends: BaseScript,
     properties: {
         manifestUrl: cc.RawAsset,       //客户端原始的配置文件
         versionLabel: cc.Label,         //版本号文本
@@ -8,7 +9,6 @@ cc.Class({
         fileLabel: cc.Label,
         fileProgress: cc.ProgressBar,    //单个文件进度条
         info: cc.Label,                 //提示文字
-
 
         _updating: false,               //是否更新状态位
         _canRetry: false,               //是否能重试
@@ -20,7 +20,7 @@ cc.Class({
     },
     //检测热更新的结果回调
     checkCb: function (event) {
-        // cc.log('checkCb Code: ' + event.getEventCode());
+        cc.log('checkCb Code: ' + event.getEventCode());
         var isContinue = true;
         switch (event.getEventCode()) {
             //没有本地描述文件来初始化资源管理器
@@ -79,39 +79,39 @@ cc.Class({
                 this.byteProgress.progress = event.getPercent();
                 this.fileProgress.progress = event.getPercentByFile();
                 //设置进度条文本
-                this.fileLabel.string = `files:(${event.getDownloadedFiles()}/${event.getTotalFiles()})`;
-                this.byteLabel.string = `bytes:(${event.getDownloadedBytes()}/${event.getTotalBytes()})`;
+                this.fileLabel.string = `文件:(${event.getDownloadedFiles()}/${event.getTotalFiles()})`;
+                this.byteLabel.string = `字节:(${event.getDownloadedBytes()}/${event.getTotalBytes()})`;
                 //当前状态文本
                 var msg = event.getMessage();
                 if (msg) {
-                    this.info.string = 'Updated file: ' + msg;
+                    this.info.string = '更新文件: ' + msg;
                 }
                 break;
             //下载配置文件失败
             case jsb.EventAssetsManager.ERROR_DOWNLOAD_MANIFEST:
             //解析配置文件失败
             case jsb.EventAssetsManager.ERROR_PARSE_MANIFEST:
-                this.info.string = 'Fail to download manifest file, hot update skipped.';
+                this.info.string = '配置文件出错';
                 failed = true;
                 break;
             //已经是最新版本
             case jsb.EventAssetsManager.ALREADY_UP_TO_DATE:
-                this.info.string = 'Already up to date with the latest remote version.';
+                this.info.string = '已经是最后一个版本了';
                 failed = true;
                 break;
             //更新结束
             case jsb.EventAssetsManager.UPDATE_FINISHED:
-                this.info.string = 'Update finished. ' + event.getMessage();
+                this.info.string = '更新结束. ' + event.getMessage();
                 needRestart = true;//需要重启
                 break;
             //更新失败,可以尝试下载无法下载的资源
             case jsb.EventAssetsManager.UPDATE_FAILED:
-                this.info.string = 'Update failed. ' + event.getMessage();
+                this.info.string = '更新失败. ' + event.getMessage();
                 this._canRetry = true;
                 break;
             //更新错误
             case jsb.EventAssetsManager.ERROR_UPDATING:
-                this.info.string = 'Asset update error: ' + event.getAssetId() + ', ' + event.getMessage();
+                this.info.string = '资源更新错误: ' + event.getAssetId() + ', ' + event.getMessage();
                 break;
             //解压缩失败
             case jsb.EventAssetsManager.ERROR_DECOMPRESS:
@@ -137,9 +137,10 @@ cc.Class({
         this.cleanUpdateListener();
         var searchPaths = jsb.fileUtils.getSearchPaths();
         var newPaths = this._am.getLocalManifest().getSearchPaths();
-        // cc.log("hotUpdate path:", newPaths);
+        cc.log("hotUpdate path:", newPaths);
         //将新下载的本地文件下载路径,移动至文件索引器的前端(保证下载的本地文件被优先引用)
         Array.prototype.unshift(searchPaths, newPaths);
+        cc.log("searchPaths path:", searchPaths);
         // This value will be retrieved and appended to the default search path during game startup,
         // please refer to samples/js-tests/main.js for detailed usage.
         // !!! Re-add the search paths in main.js is very important, otherwise, new scripts won't take effect.
@@ -306,11 +307,9 @@ cc.Class({
         this._checkListener = null;             //检测版本的时候的监听器
         this._updateListener = null;            //热更新的时候的监听器
         //存放远程版本更新文件的路径
-        this._storagePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'remote-asset');
-        // cc.log("!!!!!_storagePath:", this._storagePath);
+        this._storagePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'remote-asset/');
+        cc.log('this._storagePath', this._storagePath)
         this.init();
-        // Setup the verification callback, but we don't have md5 check function yet, so only print some message
-        // Return true if the verification passed, otherwise return false
         //注册资源校验回调
         this._am.setVerifyCallback(function (path, asset) {
             // When asset is compressed, we don't need to check its md5, because zip file have been deleted.
@@ -372,5 +371,6 @@ cc.Class({
         if (this._am && !cc.sys.ENABLE_GC_FOR_NATIVE_OBJECTS) {
             this._am.release();
         }
-    }
+    },
+    
 });

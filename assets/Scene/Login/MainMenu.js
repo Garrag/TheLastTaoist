@@ -1,11 +1,9 @@
+var BaseScript = require('BaseScript')
 cc.Class({
-    extends: cc.Component,
-
+    extends: BaseScript,
     properties: {
-        updateNode:cc.Node,
     },
     onLoad(){
-        this.updateNode.active = false;
     },
     start() {
 
@@ -19,6 +17,6 @@ cc.Class({
     },
     //打开热更新面板
     openHotUpdateNode(){
-        this.updateNode.active = true;
+        this.addPopupByName('prefab/Common/UpdateNode', {mask:true})
     }
 });

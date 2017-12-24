@@ -1,0 +1,351 @@
+[
+  [
+    {
+      "__type__": "cc.SceneAsset",
+      "_name": "Test",
+      "scene": {
+        "__id__": 1
+      },
+      "asyncLoadAssets": null
+    },
+    {
+      "__type__": "cc.Scene",
+      "_name": "New Node",
+      "_children": [
+        {
+          "__id__": 2
+        },
+        {
+          "__id__": 13
+        },
+        {
+          "__type__": "cc.Node",
+          "_name": "Script",
+          "_parent": {
+            "__id__": 1
+          },
+          "_id": "76muGUzF5HHqWj7xPaiYe2",
+          "_position": {
+            "__type__": "cc.Vec2",
+            "x": 700,
+            "y": 360
+          }
+        }
+      ],
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "autoReleaseAssets": null
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "Canvas",
+      "_parent": {
+        "__id__": 1
+      },
+      "_children": [
+        {
+          "__id__": 3
+        },
+        {
+          "__id__": 4
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "cc.Canvas",
+          "node": {
+            "__id__": 2
+          },
+          "_designResolution": {
+            "__type__": "cc.Size",
+            "width": 1400.4,
+            "height": 720
+          },
+          "_fitWidth": true,
+          "_fitHeight": false
+        },
+        {
+          "__type__": "0eb4464hsxM9rD5772ppchg",
+          "node": {
+            "__id__": 2
+          },
+          "enemyManager": {
+            "__id__": 11
+          },
+          "mapManager": {
+            "__id__": 12
+          }
+        },
+        {
+          "__id__": 12
+        },
+        {
+          "__id__": 11
+        }
+      ],
+      "_id": "8ekxtAiUFKi5WO+a/AXRDy",
+      "_color": {
+        "__type__": "cc.Color",
+        "r": 179,
+        "g": 95,
+        "b": 95
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 1400.4,
+        "height": 720
+      },
+      "_position": {
+        "__type__": "cc.Vec2",
+        "x": 700.2,
+        "y": 360
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "BgLayer",
+      "_parent": {
+        "__id__": 2
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 3
+          },
+          "_spriteFrame": {
+            "__uuid__": "a2MjXRFdtLlYQ5ouAFv/+R"
+          },
+          "_sizeMode": 0
+        },
+        {
+          "__type__": "cc.Widget",
+          "node": {
+            "__id__": 3
+          },
+          "_alignFlags": 45,
+          "_originalWidth": 100,
+          "_originalHeight": 100
+        }
+      ],
+      "_color": {
+        "__type__": "cc.Color",
+        "r": 117,
+        "g": 117,
+        "b": 117
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 1400.4,
+        "height": 720
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "GameLayer",
+      "_parent": {
+        "__id__": 2
+      },
+      "_children": [
+        {
+          "__id__": 5
+        },
+        {
+          "__id__": 10
+        }
+      ],
+      "_skewX": -2.7
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "map",
+      "_parent": {
+        "__id__": 4
+      },
+      "_children": [
+        {
+          "__id__": 6
+        },
+        {
+          "__id__": 7
+        },
+        {
+          "__id__": 8
+        }
+      ],
+      "_components": [
+        {
+          "__id__": 9
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 1280,
+        "height": 512
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "index",
+      "_parent": {
+        "__id__": 5
+      },
+      "_components": [
+        {
+          "__type__": "cc.TiledLayer",
+          "node": {
+            "__id__": 6
+          }
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 1280,
+        "height": 512
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "static",
+      "_parent": {
+        "__id__": 5
+      },
+      "_components": [
+        {
+          "__type__": "cc.TiledObjectGroup",
+          "node": {
+            "__id__": 7
+          }
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 1280,
+        "height": 512
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "role",
+      "_parent": {
+        "__id__": 5
+      },
+      "_components": [
+        {
+          "__type__": "cc.TiledObjectGroup",
+          "node": {
+            "__id__": 8
+          }
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 1280,
+        "height": 512
+      }
+    },
+    {
+      "__type__": "cc.TiledMap",
+      "node": {
+        "__id__": 5
+      },
+      "_tmxFile": {
+        "__uuid__": "8bi+O2CstMjY0RPbaqBFLG"
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "RoleLayer",
+      "_parent": {
+        "__id__": 4
+      }
+    },
+    {
+      "__type__": "968c24moNVKDJLZQGoSUDha",
+      "node": {
+        "__id__": 2
+      },
+      "roleLayer": {
+        "__id__": 10
+      },
+      "rolePrefab_1": {
+        "__uuid__": "1dEvI0hzBGrLjrfT0FMlt8"
+      }
+    },
+    {
+      "__type__": "280c3rsZJJKnZ9RqbALVwtK",
+      "node": {
+        "__id__": 2
+      },
+      "currentMap": {
+        "__id__": 9
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "Camera",
+      "_parent": {
+        "__id__": 1
+      },
+      "_active": false,
+      "_components": [
+        {
+          "__type__": "cc.Camera",
+          "node": {
+            "__id__": 13
+          },
+          "_targets": [
+            {
+              "__id__": 2
+            }
+          ]
+        },
+        {
+          "__type__": "b639aop9klG3pzN3xsen90F",
+          "node": {
+            "__id__": 13
+          }
+        }
+      ],
+      "_id": "2dlHT/qjxDZIq2oE+Tw2Td",
+      "_position": {
+        "__type__": "cc.Vec2",
+        "x": 348,
+        "y": 195
+      }
+    }
+  ],
+  {
+    "__type__": "cc.TiledMapAsset",
+    "_name": "test",
+    "tmxXmlStr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<map version=\"1.0\" tiledversion=\"1.0.3\" orientation=\"orthogonal\" renderorder=\"right-down\" width=\"40\" height=\"16\" tilewidth=\"32\" tileheight=\"32\" nextobjectid=\"9\">\r\n <tileset firstgid=\"1\" name=\"map\" tilewidth=\"32\" tileheight=\"32\" tilecount=\"2048\" columns=\"32\">\r\n  <image source=\"map.png\" width=\"1024\" height=\"2048\"/>\r\n </tileset>\r\n <layer name=\"index\" width=\"40\" height=\"16\">\r\n  <data encoding=\"csv\">\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,683,684,685,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\r\n0,0,683,684,685,0,0,0,0,0,0,0,0,683,684,684,684,684,684,684,685,0,0,715,716,717,0,0,0,0,0,0,0,0,683,684,685,0,0,0,\r\n0,0,715,716,717,0,0,0,0,0,0,0,0,715,716,716,716,716,716,716,717,0,0,0,0,0,0,0,0,0,0,0,0,0,715,716,717,0,0,0,\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\r\n898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,898,\r\n930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,930,\r\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n</data>\r\n </layer>\r\n <objectgroup name=\"static\">\r\n  <object id=\"1\" name=\"name\" x=\"1.09091\" y=\"446.667\" width=\"1278.67\" height=\"32.9697\"/>\r\n  <object id=\"4\" x=\"65.3333\" y=\"254.667\" width=\"93.3333\" height=\"32\"/>\r\n  <object id=\"5\" x=\"417.333\" y=\"256\" width=\"254.667\" height=\"32\"/>\r\n  <object id=\"6\" x=\"736\" y=\"221.333\" width=\"94.6667\" height=\"33.3333\"/>\r\n  <object id=\"7\" x=\"1089.33\" y=\"254.667\" width=\"93.3333\" height=\"32\"/>\r\n </objectgroup>\r\n <objectgroup name=\"role\">\r\n  <object id=\"3\" name=\"pos1\" x=\"258.061\" y=\"379.879\" width=\"44\" height=\"28\"/>\r\n  <object id=\"8\" name=\"pos2\" x=\"542\" y=\"188\"/>\r\n </objectgroup>\r\n</map>\r\n",
+    "tmxFolderPath": "Tmx",
+    "textures": [
+      {
+        "__uuid__": "c98w3jP6tCc4E9OfJccVQ9"
+      }
+    ]
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "default_sprite_splash",
+      "texture": "02delMVqdBD70a/HSD99FK",
+      "rect": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        2,
+        2
+      ]
+    }
+  }
+]

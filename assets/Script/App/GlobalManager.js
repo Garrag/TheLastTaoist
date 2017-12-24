@@ -4,17 +4,17 @@ GM.gameManager = null
 GM.mapManager = null
 GM.enemyManager = null
 
-
+GM.popupList = []
 
 //注册全局方法
-Array.prototype.contains = function(obj, fun) {
+Array.prototype.contains = function (obj, fun) {
     var i = this.length;
     while (i--) {
-        if(fun){
+        if (fun) {
             if (fun(this[i], obj)) {
                 return true;
             }
-        }else {
+        } else {
             if (this[i] === obj) {
                 return true;
             }
@@ -23,11 +23,11 @@ Array.prototype.contains = function(obj, fun) {
     return false;
 }
 
-Array.prototype.removeByValue = function(val) {
-    for(var i=0; i<this.length; i++) {
-        if(this[i] == val) {
-        this.splice(i, 1);
-        break;
+Array.prototype.removeByValue = function (val) {
+    for (var i = 0; i < this.length; i++) {
+        if (this[i] == val) {
+            return this.splice(i, 1);
+            break;
         }
     }
 }

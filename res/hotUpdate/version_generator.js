@@ -1,8 +1,11 @@
 var fs = require('fs');
 var path = require('path');
 var crypto = require('crypto');
+var exePath = 'E:/CocosCreator_v1.7.2-beta.1/CocosCreator.exe'
+var ip = '192.168.0.107:3456';
+var noVersion = 'noVersion'
+var src = './web-desktop';
 
-var ip = '192.168.0.104';
 var manifest = {
     packageUrl: `http://${ip}/hotupdate/remote-assets/`,
     remoteManifestUrl: `http://${ip}/hotupdate/remote-assets/project.manifest`,
@@ -11,9 +14,8 @@ var manifest = {
     assets: {},
     searchPaths: []
 };
-var noVersion = 'noVersion'
-var src = '../../build/jsb-binary';
-// Parse arguments
+
+//处理参数
 var i = 2;
 while (i < process.argv.length) {
     var arg = process.argv[i];
@@ -47,9 +49,23 @@ while (i < process.argv.length) {
             break;
     }
 }
+
 var dest = `./${noVersion}/remote-assets/`;
+
+//递归创建目录 同步方法  
+var mkdirsSync = module.exports.mkdirsSync = function (dirname) {
+    //console.log(dirname);  
+    if (fs.existsSync(dirname)) {
+        return true;
+    } else {
+        if (mkdirsSync(path.dirname(dirname))) {
+            fs.mkdirSync(dirname);
+            return true;
+        }
+    }
+}
 //读取文件夹处理文件
-function readDir(dir, obj) {
+var readDir = function (dir, obj) {
     var stat = fs.statSync(dir);
     if (!stat.isDirectory()) {
         return;
@@ -83,45 +99,86 @@ function readDir(dir, obj) {
         }
     }
 }
-//递归创建目录 同步方法  
-function mkdirsSync(dirname) {
-    //console.log(dirname);  
-    if (fs.existsSync(dirname)) {
-        return true;
-    } else {
-        if (mkdirsSync(path.dirname(dirname))) {
-            fs.mkdirSync(dirname);
-            return true;
+//处理脚本
+var init = function () {
+    //处理资源
+    readDir(path.join(src, 'src'), manifest.assets);
+    readDir(path.join(src, 'res'), manifest.assets);
+    //导出设置
+    var destManifest = path.join(dest, 'project.manifest');
+    var destVersion = path.join(dest, 'version.manifest');
+    //创建到处路径
+    mkdirsSync(dest)
+    fs.writeFile(destManifest, JSON.stringify(manifest), (err) => {
+        if (err) throw err;
+        console.log('Manifest successfully generated');
+    });
+    delete manifest.assets;
+    delete manifest.searchPaths;
+    fs.writeFile(destVersion, JSON.stringify(manifest), (err) => {
+        if (err) throw err;
+        console.log('Version successfully generated');
+    });
+}
+
+/*
+ * 复制目录、子目录，及其中的文件
+ * @param src {String} 要复制的目录
+ * @param dist {String} 复制到目标目录
+ */
+function copyDir(src, dist, callback) {
+    fs.access(dist, function (err) {
+        if (err) {
+            // 目录不存在时创建目录
+            fs.mkdirSync(dist);
+        }
+        _copy(null, src, dist);
+    });
+
+    function _copy(err, src, dist) {
+        if (err) {
+            callback(err);
+        } else {
+            fs.readdir(src, function (err, paths) {
+                if (err) {
+                    callback(err)
+                } else {
+                    paths.forEach(function (path) {
+                        var _src = src + '/' + path;
+                        var _dist = dist + '/' + path;
+                        fs.stat(_src, function (err, stat) {
+                            if (err) {
+                                callback(err);
+                            } else {
+                                // 判断是文件还是目录
+                                if (stat.isFile()) {
+                                    fs.writeFileSync(_dist, fs.readFileSync(_src));
+                                } else if (stat.isDirectory()) {
+                                    // 当是目录是，递归复制
+                                    copyDir(_src, _dist, callback)
+                                }
+                            }
+                        })
+                    })
+                }
+            })
         }
     }
 }
-module.exports.mkdirsSync = mkdirsSync;
-
-//创建文件夹
-var mkdirSync = function (path) {
-    try {
-        fs.mkdirSync(path);
-    } catch (e) {
-        if (e.code != 'EEXIST') throw e;
-    }
+//复制res 和 src 到版本差异文件夹内
+var copyResAndSrc = function () {
+    copyDir(src + '/res', `./${noVersion}/remote-assets/res`)
+    copyDir(src + '/src', `./${noVersion}/remote-assets/src`)
 }
-//处理资源
-readDir(path.join(src, 'src'), manifest.assets);
-readDir(path.join(src, 'res'), manifest.assets);
-//导出设置
-var destManifest = path.join(dest, 'project.manifest');
-var destVersion = path.join(dest, 'version.manifest');
-//创建到处路径
-console.log(dest);
-mkdirsSync(dest)
-fs.writeFile(destManifest, JSON.stringify(manifest), (err) => {
-    if (err) throw err;
-    console.log('Manifest successfully generated');
-});
-delete manifest.assets;
-delete manifest.searchPaths;
-fs.writeFile(destVersion, JSON.stringify(manifest), (err) => {
-    if (err) throw err;
-    console.log('Version successfully generated');
-});
 
+var exec = require('child_process').exec;
+var cmd = `E:/CocosCreator_v1.7.2-beta.1/CocosCreator.exe --path ../../ --build "buildPath=./res/hotUpdate/;platform=web-desktop;"`;
+console.log('======================生成原生项目===========================')
+exec(cmd, function (error, stdout, stderr) {
+    // 获取命令执行的输出
+    console.log(stdout)
+    console.log('====================================开始差异文件=======================')
+    init()
+    console.log('====================================复制res 和 src 到版本差异文件夹内=======================')
+    copyResAndSrc()
+});
