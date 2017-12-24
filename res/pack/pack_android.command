@@ -1,0 +1,1 @@
+/Applications/CocosCreator.app/Contents/MacOS/CocosCreator --path /Users/root/code/TheLastTaoist --build "platform=android;debug=true;template=binary;autoCompile=true;" --compile "platform=android;debug=true;template=binary;"
