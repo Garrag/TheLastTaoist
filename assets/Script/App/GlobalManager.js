@@ -4,7 +4,7 @@ GM.gameManager = null
 GM.mapManager = null
 GM.enemyManager = null
 
-GM.popupList = []
+GM.popupList = []           //弹框容器
 
 //注册全局方法
 Array.prototype.contains = function (obj, fun) {
