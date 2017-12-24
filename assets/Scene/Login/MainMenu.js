@@ -2,27 +2,11 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        updateNode:cc.Node,
     },
-
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {},
-
+    onLoad(){
+        this.updateNode.active = false;
+    },
     start() {
 
     },
@@ -33,5 +17,8 @@ cc.Class({
     //打开设置菜单
     openSetting(params) {
     },
-    // update (dt) {},
+    //打开热更新面板
+    openHotUpdateNode(){
+        this.updateNode.active = true;
+    }
 });

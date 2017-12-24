@@ -263,36 +263,11 @@ cc.Class({
         if (this.node.active === true) {
             this.node.active = false;
         }
-        this.init();//每次关闭初始化一次.
     },
     updatePanel: function () {
         //版本号更新
         if (this.versionLabel) {
             this.versionLabel.string = "V" + (this._versionCode || " null");
-        }
-        //如果正在更新,关闭按钮显示
-        if (this._updating) {
-            this.btnRetry.active = false;
-            this.btnClose.active = false;
-            this.btnUpdate.active = false;
-            this.btnCheck.active = false;
-        } else {
-            this.btnClose.active = true;
-            if (this._canRetry) {
-                this.btnRetry.active = true;
-                this.btnUpdate.active = false;
-                this.btnCheck.active = false;
-            }
-            else if (this._canUpdate) {
-                this.btnRetry.active = false;
-                this.btnUpdate.active = true;
-                this.btnCheck.active = false;
-            }
-            else {
-                this.btnRetry.active = false;
-                this.btnUpdate.active = false;
-                this.btnCheck.active = true;
-            }
         }
         if (this._needRestart) {
             this.restartGame();//重启游戏
@@ -363,7 +338,7 @@ cc.Class({
     },
     //初始化
     init: function () {
-        //cc.log('init AssetsManager for remote asset : ' + this._storagePath);
+        cc.log('init AssetsManager for remote asset : ' + this._storagePath);
         this.fileProgress.progress = 0;
         this.byteProgress.progress = 0;
         this.byteLabel.string = "";
