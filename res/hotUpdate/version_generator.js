@@ -2,7 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var crypto = require('crypto');
 var exePath = 'E:/CocosCreator_v1.7.2-beta.1/CocosCreator.exe'
-var ip = '192.168.0.107:3456';
+var ip = '120.77.56.23:5210';
 var noVersion = 'noVersion'
 var src = './web-desktop';
 

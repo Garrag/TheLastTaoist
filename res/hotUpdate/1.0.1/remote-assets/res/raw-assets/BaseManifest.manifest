@@ -1,8 +1,0 @@
-{
-    "packageUrl":"http://192.168.0.107:3456/hotupdate/remote-assets/",
-    "remoteManifestUrl":"http://192.168.0.107:3456/hotupdate/remote-assets/project.manifest",
-    "remoteVersionUrl":"http://192.168.0.107:3456/hotupdate/remote-assets/version.manifest",
-    "version":"0.0.1",
-    "assets":{},
-    "searchPaths":[]
-}

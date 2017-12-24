@@ -6,7 +6,19 @@ cc.Class({
     getMaskLayer(callBack) {
         cc.loader.loadRes('prefab/Common/MaskLayer', function (err, prefab) {
             if (callBack) {
-                callBack(prefab)
+                var maskLayer = cc.instantiate(prefab)
+                maskLayer.getComponent(cc.Widget).left = 0
+                maskLayer.getComponent(cc.Widget).right = 0
+                maskLayer.getComponent(cc.Widget).bottom = 0
+                maskLayer.getComponent(cc.Widget).top = 0
+                var button = maskLayer.getComponent(cc.Button);
+                var clickEventHandler = new cc.Component.EventHandler();
+                clickEventHandler.target = this.node;           //这个node节点是你的事件处理代码组件所属的节点
+                clickEventHandler.component = "BaseScript";     //这个是代码文件名
+                clickEventHandler.handler = "removeTop";        //移除顶部弹框
+                clickEventHandler.customEventData = "";
+                button.clickEvents.push(clickEventHandler);
+                callBack(maskLayer)
             }
         }.bind(this));
     },
@@ -24,15 +36,10 @@ cc.Class({
         args.node = node
         GM.popupList.push(args)
         if (mask) {
-            this.getMaskLayer(maskPrefab=> {
-                var maskLayer = cc.instantiate(maskPrefab)
+            this.getMaskLayer(maskLayer=> {
                 maskLayer.parent = cc.find('Canvas')
                 node.parent = cc.find('Canvas')
                 args.maskNode = maskLayer
-                maskLayer.getComponent(cc.Widget).left = 0
-                maskLayer.getComponent(cc.Widget).right = 0
-                maskLayer.getComponent(cc.Widget).bottom = 0
-                maskLayer.getComponent(cc.Widget).top = 0
             })
         } else {
             node.parent = cc.find('Canvas')
@@ -40,13 +47,12 @@ cc.Class({
     },
     //移除顶部弹框
     removeTop() {
-        var node = GM.popupList.pop().node
-        if (node) {
-            node.destroy()
+        var args = GM.popupList.pop()
+        if (args.node) {
+            args.node.destroy()
         }
-        var maskNode = GM.popupList.pop().maskNode
-        if(maskNode) {
-            maskNode.destroy()
+        if(args.maskNode) {
+            args.maskNode.destroy()
         }
     },
     // 移除一个弹框

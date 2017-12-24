@@ -50,13 +50,10 @@
       },
       {
         "__id__": 62
-      },
-      {
-        "__id__": 63
       }
     ],
     "_prefab": {
-      "__id__": 64
+      "__id__": 63
     },
     "_id": "",
     "_opacity": 233,
@@ -1940,15 +1937,6 @@
     "_needRestart": false,
     "_storagePath": "",
     "_versionCode": ""
-  },
-  {
-    "__type__": "5930eOm7TpPK4Ing3Dqy7lm",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true
   },
   {
     "__type__": "cc.Animation",
